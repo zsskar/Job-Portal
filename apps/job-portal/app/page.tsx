@@ -1,118 +1,82 @@
-import { Box, Button, Container, Typography } from "@mui/material";
 import Header from "../components/Header";
 import JobCard from "../components/JobCard";
 
 export default function Home() {
   return (
-    <Box sx={{ minHeight: '100vh', backgroundColor: '#f0f2f5' }}>
+    <div className="min-h-screen bg-gray-200">
       {/* Header */}
       <Header />
-
+  
       {/* Hero Section */}
-      <Box
-        sx={{
-          py: { xs: 10, md: 15 },
+      <div
+        className="py-10 md:py-15 bg-cover bg-center flex flex-col items-center justify-center text-white text-center shadow-lg"
+        style={{
           backgroundImage: 'linear-gradient(to right bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(/jobBG.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#fff',
-          textAlign: 'center',
-          boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
         }}
       >
-        <Container maxWidth="md">
-          <Typography
-            variant="h2"
-            component="h1"
-            gutterBottom
-            sx={{ fontWeight: 'bold', letterSpacing: 1.5 }}
-          >
-            Find Your Dream Job
-          </Typography>
-          <Typography
-            variant="h6"
-            color="inherit"
-            sx={{
-              mb: 3,
-              fontWeight: 300,
-              opacity: 0.8,
-            }}
-          >
-            Browse through thousands of job opportunities tailored just for you.
-          </Typography>
-      
-        </Container>
-      </Box>
-
+        <div className="max-w-md">
+          <h1 className="text-4xl font-bold tracking-wide mb-4">Find Your Dream Job</h1>
+          <p className="text-lg opacity-80 mb-3">Browse through thousands of job opportunities tailored just for you.</p>
+        </div>
+      </div>
+  
       {/* Featured Jobs Section */}
-      <Container sx={{ py: 8 }}>
-        <Typography
-          variant="h4"
-          gutterBottom
-          sx={{ fontWeight: 'bold', color: '#333' }}
-        >
-          Featured Jobs
-        </Typography>
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: 'repeat(2, 1fr)',
-              md: 'repeat(3, 1fr)',
-              lg: 'repeat(4, 1fr)',
-            },
-            gap: 4,
-          }}
-        >
-          {/* Job Cards */}
-          <JobCard title="Frontend Developer" company="Tech Company" />
-          <JobCard title="Backend Developer" company="Startup Inc." />
-          <JobCard title="Data Scientist" company="Data Corp" />
-          <JobCard title="Full Stack Engineer" company="Innovatech" />
-        </Box>
-      </Container>
+      <div className="py-8">
+      <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">Featured Jobs</h2>
+        <div className="flex justify-center p-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-full">
+    {/* Job Cards */}
+    <JobCard
+      title="Frontend Developer"
+      company="Tech Company"
+      date={new Date().toLocaleDateString()} // Use toLocaleDateString for a formatted date
+      description="This is a great job"
+      location="Remote"
+      key={Math.random().toString()}
+    />
+    <JobCard
+      title="Backend Developer"
+      company="Startup Inc."
+      date={new Date().toLocaleDateString()} // Use toLocaleDateString for a formatted date
+      description="This is a great job"
+      location="Remote"
+      key={Math.random().toString()}
+    />
+    <JobCard
+      title="Data Scientist"
+      company="Data Corp"
+      date={new Date().toLocaleDateString()} // Use toLocaleDateString for a formatted date
+      description="This is a great job"
+      location="Remote"
+      key={Math.random().toString()}
+    />
+    <JobCard
+      title="Full Stack Engineer"
+      company="Innovatech"
+      date={new Date().toLocaleDateString()} // Use toLocaleDateString for a formatted date
+      description="This is a great job"
+      location="Remote"
+      key={Math.random().toString()}
+    />
+    
+  </div>
+</div>
 
+      </div>
+  
       {/* Call to Action Section */}
-      <Box
-        sx={{
-          py: 10,
-          backgroundColor: '#007bff',
-          color: '#fff',
-          textAlign: 'center',
-          mt: 8,
-          boxShadow: '0 10px 30px rgba(0, 123, 255, 0.2)',
-        }}
-      >
-        <Container maxWidth="md">
-          <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Ready to take the next step in your career?
-          </Typography>
-          <Typography variant="body1" gutterBottom sx={{ mb: 4 }}>
-            Sign up today to start applying for your dream job.
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              backgroundColor: '#fff',
-              color: '#007bff',
-              fontWeight: 'bold',
-              px: 4,
-              '&:hover': {
-                backgroundColor: '#f5f5f5',
-                color: '#0056b3',
-              },
-            }}
+      <div className="py-10 bg-blue-600 text-white text-center mt-8 shadow-lg">
+        <div className="max-w-md mx-auto">
+          <h3 className="text-2xl font-bold mb-4">Ready to take the next step in your career?</h3>
+          <p className="mb-4">Sign up today to start applying for your dream job.</p>
+          <button
+            className="bg-white text-blue-600 font-bold py-2 px-4 rounded-lg hover:bg-gray-200 hover:text-blue-800 transition"
           >
             Get Started
-          </Button>
-        </Container>
-      </Box>
-    </Box>
+          </button>
+        </div>
+      </div>
+    </div>
   );
+  
 }

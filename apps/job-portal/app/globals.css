@@ -1,4 +1,6 @@
-/* apps/job-portal/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
