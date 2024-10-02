@@ -19,8 +19,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "prisma": "^5.20.0"
-  }
+  ]
 }

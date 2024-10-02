@@ -4,5 +4,8 @@
     "private": true,
     "exports": {
       ".": "./prisma.ts"
+    },
+    "dependencies": {
+      "prisma": "^5.20.0"
     }
 }

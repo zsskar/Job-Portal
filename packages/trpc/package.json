@@ -1,0 +1,12 @@
+{
+    "name": "@repo/trpc",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./*.ts"
+    },
+    "dependencies": {
+        "@trpc/server": "^10.45.2",
+        "superjson": "^2.2.1"
+    }
+}
