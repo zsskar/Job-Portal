@@ -5,8 +5,13 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./*"],  // Point to the root directory
+      "@shared/*": ["./shared/*"],  // If you want to create specific aliases
+    }
   },
+ 
   "include": [
     "next-env.d.ts",
     "next.config.mjs",

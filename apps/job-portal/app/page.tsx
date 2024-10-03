@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import JobCard from "../components/JobCard";
+import Header from "@/shared/Header";
+import JobCard from "@/shared/JobCard";
 
 export default function Home() {
   return (
