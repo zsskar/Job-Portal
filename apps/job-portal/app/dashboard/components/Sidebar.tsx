@@ -47,8 +47,8 @@ export const dashboardLinks = [
                 "flex items-center gap-3 rounded-lg px-4 py-3 transition-all duration-200 ease-in-out  hover:text-primary"
               )}
             >
-              <link.icon className="h-5 w-5" /> {/* Increased icon size */}
-              <span className="text-sm"> {/* Increased font size */}
+              <link.icon className="h-5 w-5" /> 
+              <span className="text-sm"> 
                 {link.name}
               </span>
             </Link>
