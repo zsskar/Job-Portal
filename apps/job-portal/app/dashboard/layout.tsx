@@ -35,16 +35,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         isDarkMode={isDarkMode}
       />
 
-      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} />
 
-      {/* Main Content */}
       <Box
         component="main"
         sx={{
           flexGrow: 1,
           padding: 3,
-          marginTop: "64px", // to adjust for AppBar height
+          marginTop: "64px",
           marginLeft: sidebarOpen ? `${drawerWidth}px` : "0px", // adjusts layout based on sidebar state
           transition: "margin-left 0.3s ease",
         }}
