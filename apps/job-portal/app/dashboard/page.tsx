@@ -1,9 +1,3 @@
-import React from 'react';
-
-export  default function Dashboard() {
-    return (
-        <div>
-        <h1>Hello from Dashboard</h1>
-        </div>
-    );
+export default function Dashboard() {
+  return <h1>Welcome to the Job Finder App</h1>;
 }
