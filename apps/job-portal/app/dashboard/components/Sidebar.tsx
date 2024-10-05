@@ -1,69 +1,83 @@
-import React from "react";
-import Box from "@mui/material/Box";
+"use client";
+import React, { useState } from "react";
 import {
+  Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemText,
-  Divider,
-  Checkbox,
+  Box,
   Typography,
 } from "@mui/material";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 
-const drawerWidth = 240;
+const Sidebar: React.FC = () => {
+  const [open, setOpen] = useState(true);
 
-type SidebarProps = {
-  isOpen: boolean;
-};
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   return (
-    <Box
-      component="nav"
+    <Drawer
+      variant="permanent"
+      anchor="left"
+      open={open}
       sx={{
-        width: isOpen ? drawerWidth : 0,
+        width: open ? 240 : 0, // Shrink width when closed
         flexShrink: 0,
-        transition: "width 0.3s ease",
-        backgroundColor: "#ffffff",
-        boxShadow: isOpen ? "2px 0 5px rgba(0, 0, 0, 0.1)" : "none",
-        height: "100vh",
-        overflow: "hidden",
-        position: "fixed",
-        zIndex: 1000,
+        "& .MuiDrawer-paper": {
+          width: open ? 240 : 0, // Control paper width to match
+          transition: "width 0.3s",
+        },
       }}
     >
-      {isOpen && (
-        <Box sx={{ width: drawerWidth, marginTop: "60px", padding: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", color: "#333" }}>
-            Filter By
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: open ? "flex-end" : "center", // Center icon when closed
+          padding: "8px",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        <IconButton onClick={toggleDrawer}>
+          {open ? <ChevronLeft /> : <ChevronRight />} {/* Toggle icon */}
+        </IconButton>
+      </Box>
+      {open && (
+        <Box
+          sx={{
+            padding: "10px",
+            backgroundColor: "#fafafa",
+            height: "100%",
+          }}
+        >
+          <Typography variant="h6" align="center" gutterBottom>
+            Filters
           </Typography>
-          <List sx={{ width: "100%" }}>
-            <Divider sx={{ marginBottom: 2 }} />
-            {[
-              { label: "Full-Time" },
-              { label: "Part-Time" },
-              { label: "Remote" },
-              { label: "On-site" },
-            ].map((filter, index) => (
-              <ListItem key={index} sx={{ paddingLeft: 0 }}>
-                <Checkbox size="small" sx={{ padding: 0, marginRight: 1 }} />
-                <ListItemText primary={filter.label} />
-              </ListItem>
-            ))}
-            <Divider sx={{ margin: "16px 0" }} />
-            {[
-              { label: "Junior Level" },
-              { label: "Mid Level" },
-              { label: "Senior Level" },
-            ].map((filter, index) => (
-              <ListItem key={index} sx={{ paddingLeft: 0 }}>
-                <Checkbox size="small" sx={{ padding: 0, marginRight: 1 }} />
-                <ListItemText primary={filter.label} />
+          <List>
+            {["Filter 1", "Filter 2", "Filter 3"].map((text, index) => (
+              <ListItem
+                key={index}
+                sx={{
+                  padding: "10px 20px",
+                  marginBottom: "5px",
+                  backgroundColor: "#ffffff",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  "&:hover": {
+                    backgroundColor: "#f0f0f0",
+                  },
+                }}
+              >
+                <ListItemText primary={text} />
               </ListItem>
             ))}
           </List>
         </Box>
       )}
-    </Box>
+    </Drawer>
   );
 };
 
